@@ -15,7 +15,8 @@ class Typequestion extends Model
 
     protected  $fillable = [
         'id_type_question',
-        'question',
+        'id_question',
+        'id_type',
 
 
     ];

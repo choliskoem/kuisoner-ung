@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('options', function (Blueprint $table) {
-            $table->uuid('id_option')->primary();
-            $table->string('name_option');
-            $table->float('bobot');
+        Schema::create('schedules', function (Blueprint $table) {
+            $table->uuid('id_schedule')->primary();
+            $table->string('schedule');
+            $table->text('title_question');
+            $table->text('tujuan_question');
+            $table->text('cara_pakai_question');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('options');
+        Schema::dropIfExists('schedules');
     }
 };

@@ -5,30 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class OptionController extends Controller
+class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $options = DB::table('options')
-            ->when($request->input('name_option'), function ($query, $name) {
-                return $query->where('name_option', 'like', '%' . $name . '%');
+        $categorys = DB::table('categories')
+            ->when($request->input('name_category'), function ($query, $name) {
+                return $query->where('name_category', 'like', '%' . $name . '%');
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-        return view('pages.options.index', compact('options'));
+        return view('pages.categories.index', compact('categorys'));
     }
-
     public function create()
     {
 
-        return view('pages.options.create');
+        return view('pages.categories.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name_option' => 'required|min:1|unique:options',
-            'bobot' => 'required|min:1|unique:options',
+            'name_category' => 'required|min:1|unique:categories',
+
 
         ]);
 
@@ -36,15 +35,15 @@ class OptionController extends Controller
 
         $data = $request->all();
 
-        $option  = new \App\Models\Option;
-        $option->id_option = uuid_create();
-        $option->name_option = $request->name_option;
-        $option->bobot = $request->bobot;
+        $category  = new \App\Models\category;
+        $category->id_category = uuid_create();
+        $category->name_category = $request->name_category;
 
 
-        $option->save();
 
-        return redirect()->route('option.index')->with('success', 'Option Created Successfully');
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'category Created Successfully');
     }
 
     public function edit($id_option)

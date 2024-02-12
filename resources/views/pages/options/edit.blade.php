@@ -49,6 +49,21 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label for="bobot">Bobot</label>
+                                <input type="text"
+                                    class="form-control
+                           @error('bobot')
+                           is-invalid
+                           @enderror"
+                                    name="bobot" value="{{ $option->bobot }}">
+                                @error('bobot')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
 
                         </div>
                         <div class="card-footer text-right">

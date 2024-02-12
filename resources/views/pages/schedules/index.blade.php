@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'types')
+@section('title', 'schedules')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,14 +11,14 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Types</h1>
+                <h1>schedules</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('typeoption.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('schedule.create') }}" class="btn btn-primary">Add New</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Management</a></div>
-                    <div class="breadcrumb-item">All Types</div>
+                    <div class="breadcrumb-item"><a href="#">Products</a></div>
+                    <div class="breadcrumb-item">All Products</div>
                 </div>
             </div>
             <div class="section-body">
@@ -28,9 +28,9 @@
                     </div>
 
                 </div>
-                <h2 class="section-title">types</h2>
+                <h2 class="section-title">schedules</h2>
                 <p class="section-lead">
-                    You can manage all types, such as editing, deleting and more.
+                    You can manage all schedules, such as editing, deleting and more.
                 </p>
                 <div class="row mt-4">
                     <div class="col-12">
@@ -41,10 +41,10 @@
                             <div class="card-body">
 
                                 <div class="float-right">
-                                    <form method="GET" action="{{ route('typeoption.index') }}">
+                                    <form method="GET" action="{{ route('schedule.index') }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search"
-                                                name="name_type">
+                                                name="name_schedule">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
@@ -57,27 +57,35 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-                                            <th>Name Type</th>
-                                            <th>Name option</th>
+                                            <th>Schedule</th>
+                                            <th>Title Question</th>
+                                            <th>Tujuan Question</th>
+                                            <th>Cara Pakai</th>
                                             <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
 
-                                        @foreach ($typeoption as $typeoptions)
+                                        @foreach ($schedules as $schedule)
                                             <tr>
-                                                <td>{{ $typeoptions->name_type }}</td>
-                                                <td>{{ $typeoptions->name_option }}</td>
-                                                <td>{{ $typeoptions->created_at }}</td>
+                                                <td>{{ $schedule->schedule }}</td>
+
+                                                <td>{{ $schedule->title_question }}</td>
+
+                                                <td>{{ $schedule->tujuan_question }}</td>
+
+                                                <td>{{ $schedule->cara_pakai_question }}</td>
+
+                                                <td>{{ $schedule->created_at }}</td>
 
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        {{-- <a href="{{ route('type.edit', $typeoptions->id_type) }}"
+                                                        <a href="{{ route('schedule.edit', $schedule->id_schedule) }}"
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
-                                                        </a> --}}
-                                                        {{-- <form
-                                                            action="{{ route('typeoptions.destroy', $typeoptions->id_type_option) }}"
+                                                        </a>
+                                                        <form
+                                                            action="{{ route('schedule.destroy', $schedule->id_schedule) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <input type="hidden" name="_token"
@@ -86,7 +94,7 @@
                                                                 <i class="fas fa-times"></i>
                                                                 Delete
                                                             </button>
-                                                        </form> --}}
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -96,7 +104,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{-- {{$typeoptions->withQueryString()->links() }} --}}
+                                    {{ $schedules->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>

@@ -5,23 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Option extends Model
+class category extends Model
 {
     use HasFactory;
 
     protected $keyType = 'string';
-    protected $primaryKey = 'id_option';
+    protected $primaryKey = 'id_category';
     public $incrementing = false;
 
     protected  $fillable = [
-        'id_option',
-        'name_option',
-        'bobot'
+        'id_category',
+        'name_category'
 
     ];
-
-    public function options()
-    {
-        // return $this->hasMany(Typequestion::class);
-    }
 }

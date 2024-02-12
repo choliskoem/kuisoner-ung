@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('typequestions', function (Blueprint $table) {
             $table->uuid('id_type_question')->primary();
+            $table->uuid('id_category');
             $table->uuid('id_question');
             $table->uuid('id_type');
+            $table->foreign('id_category')->references('id_category')->on('categories')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('id_question')->references('id_question')->on('questions')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('id_type')->references('id_type')->on('types')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('typequestions');
+        Schema::dropIfExists('type_questions');
     }
 };

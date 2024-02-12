@@ -5,23 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Option extends Model
+class schedule extends Model
 {
     use HasFactory;
-
     protected $keyType = 'string';
-    protected $primaryKey = 'id_option';
+    protected $primaryKey = 'id_schedule';
     public $incrementing = false;
 
     protected  $fillable = [
-        'id_option',
-        'name_option',
-        'bobot'
+        'id_Schedule',
+        'schedule',
+        'title_question',
+        'tujuan_question',
+        'cara_pakai_question'
 
     ];
-
-    public function options()
-    {
-        // return $this->hasMany(Typequestion::class);
-    }
 }

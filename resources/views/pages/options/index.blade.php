@@ -58,6 +58,7 @@
                                     <table class="table-striped table">
                                         <tr>
                                             <th>Name</th>
+                                            <th>Bobot</th>
                                             <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
@@ -65,6 +66,7 @@
                                         @foreach ($options as $option)
                                             <tr>
                                                 <td>{{ $option->name_option }}</td>
+                                                <td>{{ $option->bobot }}</td>
 
 
                                                 <td>{{ $option->created_at }}</td>

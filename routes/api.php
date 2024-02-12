@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('login', [App\Http\Controllers\Api\AuthController::class, 'login']);
-Route::apiResource('typequestions', App\Http\Controllers\Api\TypeQuestionController::class)->middleware('auth:sanctum');
+Route::apiResource('survey', App\Http\Controllers\Api\TypeQuestionController::class)->middleware('auth:sanctum');

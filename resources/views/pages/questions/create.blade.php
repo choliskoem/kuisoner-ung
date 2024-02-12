@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Options ')
+@section('title', 'Create Question ')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,18 +16,18 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Options</h1>
+                <h1>Question</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">Options</div>
+                    <div class="breadcrumb-item">Question</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Options</h2>
+                <h2 class="section-title">Question</h2>
                 <div class="card">
-                    <form action="{{ route('option.store') }}" method="POST">
+                    <form action="{{ route('question.store') }}" method="POST">
                         @csrf
 
                         <div class="card-header">
@@ -35,33 +35,20 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name_option">Name option</label>
+                                <label for="question">Name question</label>
                                 <input type="text"
                                     class="form-control
-                           @error('name_option')
+                           @error('question')
                            is-invalid
                            @enderror"
-                                    name="name_option">
-                                @error('name_option')
+                                    name="question">
+                                @error('question')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="bobot">Bobot</label>
-                                <input type="text"
-                                    class="form-control
-                           @error('bobot')
-                           is-invalid
-                           @enderror"
-                                    name="bobot">
-                                @error('bobot')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+
 
                         </div>
                         <div class="card-footer text-right">

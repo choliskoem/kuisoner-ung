@@ -34,14 +34,24 @@
                         <a class="nav-link" href="{{ route('option.index') }}">All Options</a>
                     </li>
                     <li>
+                        <a class="nav-link" href="{{ route('category.index') }}">All Categories</a>
+                    </li>
+                    <li>
                         <a class="nav-link" href="{{ route('type.index') }}">All Types</a>
                     </li>
                     <li>
                         <a class="nav-link" href="{{ route('question.index') }}">All Question</a>
                     </li>
                     <li>
+                        <a class="nav-link" href="{{ route('schedule.index') }}">All Schedule</a>
+                    </li>
+                    <li>
                         <a class="nav-link" href="{{ route('typeoption.index') }}">Type Options</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('typequestion.index') }}">Type Questions</a>
+                    </li>
+
 
 
 
